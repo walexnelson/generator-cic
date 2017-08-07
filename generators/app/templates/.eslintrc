@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "mocha": true,
+    "browser": true,
+    "node": true,
+    "es6": true
+  },
+  "plugins": [],
+  "rules": {
+    "import/no-extraneous-dependencies": 0,
+    "import/no-unresolved": 0,
+    "no-param-reassign": ["error", { "ignorePropertyModificationsFor": ["$scope", "$rootScope"]}],
+    "max-len": [1, 120],
+    "linebreak-style": ["error", "windows"]
+  },
+  "globals": {
+    "ON_DEV": false,
+    "ON_TEST": false,
+    "ON_PROD": false,
+    "sinon": false,
+    "expect": false,
+    "angular": false
+  }
+}
