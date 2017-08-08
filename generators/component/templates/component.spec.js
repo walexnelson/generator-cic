@@ -1,25 +1,18 @@
 module.exports = ngModule => {
-  const component = require('./{{> kabobCaseComponentName}}.component.js');
+  const component = require('./<%= kebabCaseName %>.component.js');
   component(ngModule);
 
-  describe('component:{{> camelCaseComponentName}}', () => {
+  describe('component:<%= camelCaseName %>', () => {
     let $componentController;
 
-    {{#if route}}
-    beforeEach(() => {
-      window.module('ui.router');
-      window.module(ngModule.name);
-    });
-    {{else}}
     beforeEach(window.module(ngModule.name));
-    {{/if}}
 
     beforeEach(inject(_$componentController_ => {
       $componentController = _$componentController_;
     }));
 
     function createController(bindings = {}) {
-      const $ctrl = $componentController('{{> camelCaseComponentName}}', { $scope: {} }, bindings);
+      const $ctrl = $componentController('<%= camelCaseName %>', { $scope: {} }, bindings);
       return $ctrl;
     }
 

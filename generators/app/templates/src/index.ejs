@@ -5,19 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title><%= appName %></title>
 
   <!-- Disable tap highlight on IE -->
   <meta name="msapplication-tap-highlight" content="no">
 
-  <% for (var dependency in htmlWebpackPlugin.options.pkg.cdnDependencies) { %>
-    <script src="<%= htmlWebpackPlugin.options.pkg.cdnDependencies[dependency] %>"></script>
-  <% } %>
+  <%- webpack('cdn') %>
 </head>
-<body ng-cloak ng-app="app" ng-strict-di>
-  <h1>Desktop</h1>
+<body ng-cloak ng-app="<%= ngModule %>" ng-strict-di>
+  <h1><%= appName %></h1>
   <div ui-view></div>
 
-  <!-- <%= htmlWebpackPlugin.options.pkg.name + ' v' + htmlWebpackPlugin.options.pkg.version + ' built on ' + new Date() %> -->
+  <%- webpack('banner') %>
 </body>
 </html>

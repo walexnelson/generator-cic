@@ -7,7 +7,6 @@ var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 const pkg = require('./package.json');
 
-
 // Environment
 const ON_DEV = process.env.NODE_ENV === 'development' || !process.env.NODE_ENV;
 const ON_TEST = process.env.NODE_ENV === 'test';

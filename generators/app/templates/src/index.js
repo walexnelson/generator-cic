@@ -12,7 +12,7 @@ const ngDependencies = [
 
 ngDependencies.push.apply(ngDependencies, getNgModuleNames(require.context('./routes', true, /index\.js$/)));
 
-const ngModule = angular.module('app', ngDependencies)
+const ngModule = angular.module('<%= ngModule %>', ngDependencies)
   .constant('$', require('jquery'))
   .constant('_', require('lodash'));
 

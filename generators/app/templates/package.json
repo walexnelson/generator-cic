@@ -1,6 +1,9 @@
 {
-  "name": "app",
+  "name": "<%= appName %>",
+  "description": "<%= description %>",
   "version": "0.0.0",
+  "author": "<%- author %>",
+  "repository": "<%= repoUrl %>",
   "scripts": {
     "start": "cross-env NODE_ENV='development' && webpack -d -w",
     "build": "webpack -p"
