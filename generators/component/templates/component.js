@@ -1,4 +1,4 @@
-module.exports = ngModule => {
+module.exports = (ngModule) => {
   require('./<%= kebabCaseName %>.component.scss');
 
   ngModule.component('<%= camelCaseName %>', {
@@ -7,7 +7,7 @@ module.exports = ngModule => {
     bindings: {
       // Inputs should use < and @ bindings.
       // Outputs should use & bindings.
-    }
+    },
   });
 
   function <%= camelCaseName %>Ctrl() {
@@ -20,7 +20,4 @@ module.exports = ngModule => {
       // Use this for initialization code.
     }
   }
-
-  // inject dependencies here
-  <%= camelCaseName %>Ctrl.$inject = [];
 };

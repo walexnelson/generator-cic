@@ -1,7 +1,7 @@
 require('./styles/typebase.scss');
+const angular = require('angular');
+const { attachAll } = require('../../utils/boilerplate');
 
-import angular from 'angular';
-import { attachAll } from '../../utils/boilerplate.js';
 const ngModule = angular.module('<%= ngModule %>.common', []);
 
 attachAll(require.context('./services', true, /\.factory\.js$/))(ngModule);

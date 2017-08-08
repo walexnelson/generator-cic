@@ -8,11 +8,12 @@
   },
   "plugins": [],
   "rules": {
+    "no-use-before-define": 0,
+    "global-require": 0,
     "import/no-extraneous-dependencies": 0,
     "import/no-unresolved": 0,
     "no-param-reassign": ["error", { "ignorePropertyModificationsFor": ["$scope", "$rootScope"]}],
-    "max-len": [1, 120],
-    "linebreak-style": ["error", "windows"]
+    "max-len": [1, 120]
   },
   "globals": {
     "ON_DEV": false,

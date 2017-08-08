@@ -15,7 +15,6 @@ const ON_PROD = process.env.NODE_ENV === 'production';
 // Webpack Plugins
 const plugins = [
   new webpack.optimize.OccurrenceOrderPlugin(),
-  new webpack.optimize.DedupePlugin(),
 
   new NgAnnotatePlugin({
     add: true,
@@ -43,9 +42,9 @@ const plugins = [
 
 if (ON_PROD) {
   plugins.push(new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: false
-    }
+    sourceMap: true,
+    output: { comments: false },
+    compress: { warnings: false }
   }));
 } else {
   plugins.push(new webpack.HotModuleReplacementPlugin());
@@ -116,7 +115,7 @@ module.exports = {
         query: {
           cacheDirectory: true,
           presets: ['es2015'],
-          plugins: ['transform-runtime', 'add-module-exports'],
+          plugins: ['angularjs-annotate', 'transform-runtime', 'add-module-exports'],
         },
       },
       {

@@ -1,4 +1,4 @@
-module.exports = ngModule => {
+module.exports = (ngModule) => {
   const component = require('./<%= kebabCaseName %>.component.js');
   component(ngModule);
 
@@ -7,7 +7,7 @@ module.exports = ngModule => {
 
     beforeEach(window.module(ngModule.name));
 
-    beforeEach(inject(_$componentController_ => {
+    beforeEach(inject((_$componentController_) => {
       $componentController = _$componentController_;
     }));
 

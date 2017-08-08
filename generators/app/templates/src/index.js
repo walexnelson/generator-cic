@@ -1,18 +1,17 @@
 require('./app.scss');
-
-import angular from 'angular';
-import { attachAll, getNgModuleNames } from '../utils/boilerplate.js';
+const angular = require('angular');
+const { attachAll, getNgModuleNames } = require('../utils/boilerplate');
 
 const ngDependencies = [
   'ui.router',
   'ngAnimate',
-  require('../common').name,
   // Add additional external Angular dependencies here
+
+  require('./common').name,
+  ...getNgModuleNames(require.context('./routes', true, /index\.js$/)),
 ];
 
-ngDependencies.push.apply(ngDependencies, getNgModuleNames(require.context('./routes', true, /index\.js$/)));
-
-const ngModule = angular.module('<%= ngModule %>', ngDependencies)
+const ngModule = angular.module('app', ngDependencies)
   .constant('$', require('jquery'))
   .constant('_', require('lodash'));
 
