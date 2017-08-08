@@ -20,8 +20,6 @@ class ComponentGenerator extends Generator {
     this.camelCaseName = utils.getCamelName(this.options.name);
     this.moduleFolder = path.join(this.contextRoot, this.kebabCaseName);
 
-    console.log(this.moduleFolder);
-
     mkdirp.sync(this.moduleFolder);
 
     const templates = fs.readdirSync(this.sourceRoot());
