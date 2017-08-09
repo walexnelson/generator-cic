@@ -1,3 +1,3 @@
 # Common Services / Factories
 
-Run `yo cic:factory` to get started
+Run `yo ngpack:factory` to get started

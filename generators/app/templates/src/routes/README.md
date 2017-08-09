@@ -1,3 +1,3 @@
 # Routes
 
-Run `yo cic:route` to start a new route
+Run `yo ngpack:route` to start a new route

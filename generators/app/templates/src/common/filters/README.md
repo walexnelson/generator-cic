@@ -1,3 +1,3 @@
 # Common Filters
 
-Run `yo cic:filter` to get started
+Run `yo ngpack:filter` to get started
