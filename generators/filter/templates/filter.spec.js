@@ -1,4 +1,4 @@
-module.exports = ngModule => {
+module.exports = (ngModule) => {
   const filter = require('./<%= kebabCaseName %>.filter.js');
   filter(ngModule);
 
@@ -7,7 +7,7 @@ module.exports = ngModule => {
 
     beforeEach(window.module(ngModule.name));
 
-    beforeEach(inject(_$filter_ => {
+    beforeEach(inject((_$filter_) => {
       $filter = _$filter_;
     }));
 
