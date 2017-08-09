@@ -1,8 +1,8 @@
 module.exports = (ngModule) => {
-  <%if (!isSimple) { %>require('./<%= kebabCaseName %>.component.scss');<% } %>
+  <%if (!isSimple) { %>require('./<%= kebabCaseName %>.component.scss');
 
-  ngModule.component('<%= camelCaseName %>', {
-    template: <%- isSimple ? `'<div></div>'` : `require('${kebabCaseName}.component.html')` %>,
+  <% } %>ngModule.component('<%= camelCaseName %>', {
+    template: <%- isSimple ? `'<div></div>'` : `require('./${kebabCaseName}.component.html')` %>,
     controller: <%= camelCaseName %>Ctrl,
     bindings: {
       // Inputs should use < and @ bindings.

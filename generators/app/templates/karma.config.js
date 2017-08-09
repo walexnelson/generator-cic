@@ -7,7 +7,7 @@ module.exports = config => {
   const testEntryFile = './utils/tests.js';
 
   const webpackConfig = require('./webpack.config');
-  const webpackLoaders = webpackConfig.module.loaders;
+  const webpackLoaders = webpackConfig.module.rules;
 
   config.set({
     frameworks: ['mocha', 'chai', 'sinon'],
