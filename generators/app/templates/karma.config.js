@@ -28,10 +28,11 @@ module.exports = config => {
       noInfo: true
     },
     // how the test success/failure status is reported:
-    reporters: ['dots'],
+    reporters: ['mocha'],
     logLevel: config.LOG_ERROR,
     browsers: ['PhantomJS', 'Chrome', 'Firefox', 'Safari'],
     plugins: [
+      'karma-mocha-reporter',
       'karma-phantomjs-launcher',
       'karma-sourcemap-loader',
       'karma-chrome-launcher',
