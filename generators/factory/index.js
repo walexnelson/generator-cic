@@ -15,7 +15,6 @@ class FactoryGenerator extends Generator {
   }
 
   writing() {
-    this.isSimple = this.options.simple;
     this.pascalCaseName = utils.getPascalName(this.options.name);
     this.kebabCaseName = utils.getKebabName(this.options.name);
     this.camelCaseName = utils.getCamelName(this.options.name);
@@ -35,11 +34,9 @@ class FactoryGenerator extends Generator {
     return this.fs.copyTpl(
       this.templatePath(filePath),
       this.destinationPath(toPath), {
-        isSimple: this.isSimple,
         kebabCaseName: this.kebabCaseName,
         pascalCaseName: this.pascalCaseName,
-        camelCaseName: this.camelCaseName,
-        moduleFolder: this.moduleFolder
+        camelCaseName: this.camelCaseName
       }
     );
   }

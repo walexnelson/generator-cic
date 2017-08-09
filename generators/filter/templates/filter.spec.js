@@ -1,8 +1,8 @@
 module.exports = ngModule => {
-  const filter = require('./{{kabobCase name}}.filter.js');
+  const filter = require('./<%= kebabCaseName %>.filter.js');
   filter(ngModule);
 
-  describe('Filter:{{camelCase name}}', () => {
+  describe('filter:<%= camelCaseName %>', () => {
     let $filter;
 
     beforeEach(window.module(ngModule.name));
@@ -12,8 +12,8 @@ module.exports = ngModule => {
     }));
 
     it('should test properly', () => {
-      const {{camelCase name}} = $filter('{{camelCase name}}');
-      expect({{camelCase name}}).to.not.equal(undefined);
+      const <%= camelCaseName %> = $filter('<%= camelCaseName %>');
+      expect(<%= camelCaseName %>).to.not.equal(undefined);
     });
 
     // insert your tests here
