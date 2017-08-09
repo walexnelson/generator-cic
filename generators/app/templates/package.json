@@ -8,9 +8,8 @@
     "test": "npm run lint && cross-env NODE_ENV=test karma start ./karma.config.js --single-run",
     "tdd": "cross-env NODE_ENV=test karma start ./karma.config.js --browsers Chrome",
     "lint": "eslint --ext .js src",
-    "start": "npm run start:vs",
-    "start:dev": "cross-env NODE_ENV='development' webpack-dev-server",
-    "start:vs": "cross-env NODE_ENV='development' && webpack -d -w",
+    "webpack": "cross-env NODE_ENV='development' webpack-dev-server",
+    "start": "cross-env NODE_ENV='development' && webpack -d -w",
     "build": "rimraf ./dist && cross-env NODE_ENV='production' webpack -p"
   },
   "devDependencies": {

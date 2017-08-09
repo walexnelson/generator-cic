@@ -20,6 +20,12 @@ class DirectiveGenerator extends Generator {
       defaults: 'E'
     });
 
+    this.argument('path', {
+      type: String,
+      required: false,
+      default: '/',
+    });
+
     this.option('simple', {
       desc: `Don't include stylesheet and template`,
       type: Boolean,
@@ -33,7 +39,7 @@ class DirectiveGenerator extends Generator {
     this.pascalCaseName = utils.getPascalName(this.options.name);
     this.kebabCaseName = utils.getKebabName(this.options.name);
     this.camelCaseName = utils.getCamelName(this.options.name);
-    this.moduleFolder = path.join(this.contextRoot, this.kebabCaseName);
+    this.moduleFolder = path.join(this.contextRoot, this.options.path, this.kebabCaseName);
 
     mkdirp.sync(this.moduleFolder);
 

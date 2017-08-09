@@ -13,6 +13,12 @@ class ComponentGenerator extends Generator {
       required: true
     });
 
+    this.argument('path', {
+      type: String,
+      required: false,
+      default: '/',
+    });
+
     this.option('simple', {
       desc: `Don't include stylesheet and template`,
       type: Boolean,
@@ -25,7 +31,10 @@ class ComponentGenerator extends Generator {
     this.pascalCaseName = utils.getPascalName(this.options.name);
     this.kebabCaseName = utils.getKebabName(this.options.name);
     this.camelCaseName = utils.getCamelName(this.options.name);
-    this.moduleFolder = path.join(this.contextRoot, this.kebabCaseName);
+    this.moduleFolder = path.join(this.contextRoot, this.options.path, this.kebabCaseName);
+
+    console.log('Component Context ', this.contextRoot);
+    console.log(this.moduleFolder);
 
     mkdirp.sync(this.moduleFolder);
 
@@ -33,10 +42,10 @@ class ComponentGenerator extends Generator {
       .readdirSync(this.sourceRoot())
       .filter(file => this.isSimple ? file.indexOf('.js') > -1 : true);
 
-      for (let file of templates) {
-        const dest = path.join(this.moduleFolder, `${this.kebabCaseName}.${file}`);
-        this._copyTemplate(file, dest);
-      }
+    for (let file of templates) {
+      const dest = path.join(this.moduleFolder, `${this.kebabCaseName}.${file}`);
+      this._copyTemplate(file, dest);
+    }
   }
 
   _copyTemplate(filePath, toPath) {

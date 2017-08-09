@@ -37,8 +37,9 @@ class AppGenerator extends Generator {
 
       // Set needed keys into config
       this.config.set('appName', this.appName);
+      this.config.set('ngModule', this.ngModule);
       this.config.set('generatedWithVersion', this.generatedWithVersion);
-    })
+    });
   }
 
   writing() {
