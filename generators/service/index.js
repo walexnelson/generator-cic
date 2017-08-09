@@ -12,13 +12,19 @@ class ServiceGenerator extends Generator {
       type: String,
       required: true
     });
+
+    this.argument('path', {
+      type: String,
+      required: false,
+      default: '/',
+    });
   }
 
   writing() {
     this.pascalCaseName = utils.getPascalName(this.options.name);
     this.kebabCaseName = utils.getKebabName(this.options.name);
     this.camelCaseName = utils.getCamelName(this.options.name);
-    this.moduleFolder = path.join(this.contextRoot, this.kebabCaseName);
+    this.moduleFolder = path.join(this.contextRoot, this.options.path, this.kebabCaseName);
 
     mkdirp.sync(this.moduleFolder);
 
