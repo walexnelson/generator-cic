@@ -1,6 +1,6 @@
 {
   "name": "generator-ngpack",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Yeoman generator for scaffolding an Angular 1.x app with Webpack",
   "main": "index.js",
   "scripts": {
